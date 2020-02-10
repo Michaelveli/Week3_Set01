@@ -90,56 +90,8 @@ import java.util.List;
         }
 
 
-    } //class end
+    }
 
-
-
-/*Scanner in = new Scanner(System.in);
-        System.out.print("Enter your name: ");
-        String message = in.nextLine();
-        in.close();
-
-        System.out.println ("-----");
-        System.out.println (message);
-        System.out.println ("------");
-        System.out.println  ("\\   ^__^");
-        System.out.println (" \\  (oo)\\________");
-        System.out.println     ("    (__)\\         )\\ /\\");
-        System.out.println     ("        ||------w|");
-        System.out.println     ("        ||      ||");
-
-
- String strArray[] = str.split(" ");
-
-
-        //print elements of String array
-        for(int i=0; i < strArray.length; i++){
-            System.out.println(strArray[i]);
-        }
-
-        String str = "Java String to String Array Example";
-
-
-
-
-try {
-
-            File fortune = new File("/home/michaelveli/IdeaProjects/Homework3/Set02/src/fortunes.txt");
-            Scanner fortuneScanner = new Scanner(fortune);
-            fortuneScanner.useDelimiter("%");
-
-
-            int lineNumber = 1;
-            while(fortuneScanner.hasNextLine()){
-                String line = fortuneScanner.next();
-                System.out.println(line);
-                lineNumber++;
-            }
-
-
-
-
- */
 
 
 
