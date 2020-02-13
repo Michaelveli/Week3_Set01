@@ -26,24 +26,32 @@ import java.util.List;
             Random rand = new Random();
 
 
-            Scanner in = new Scanner(System.in);
-            System.out.print("Choose your fortune number (0 for random) : ");
-            int fortuneNumber = in.nextInt();
-            if (fortuneNumber == 0){
-                fortuneNumber = rand.nextInt(max - min) + 1 ;
+
+            try {
+                Scanner in = new Scanner(System.in);
+                System.out.print("Choose your fortune number (0 for random) : ");
+                int fortuneNumber = in.nextInt();
+                if (fortuneNumber == 0) {
+                    fortuneNumber = rand.nextInt(max - min) + 1;
+                }
+
+
+                System.out.print("Debug Y/N ?: ");
+                String debug = in.next();
+                if (debug.equals("Y") || debug.equals("y")) {
+                    System.out.println("_ _ _ _ _");
+                    System.out.println("There are " + (count - 1) + " fortunes.");
+                    System.out.println("This is fortune # " + fortuneNumber);
+
+                }
+
+                cowSay(fortuneList.get(fortuneNumber - 1));
             }
-            System.out.print("Debug Y/N ?: ");
-           String debug = in.next();
-            if (debug.equals("Y") || debug.equals("y")){
-                System.out.println("_ _ _ _ _");
-                System.out.println("There are " + (count - 1) +" fortunes.");
-                System.out.println("This is fortune # " + fortuneNumber);
 
-
+            catch (Exception e) {
+                System.out.println("That fortune does not exist");
+                e.printStackTrace();
             }
-
-            cowSay(fortuneList.get(fortuneNumber-1));
-
         }
 
 
