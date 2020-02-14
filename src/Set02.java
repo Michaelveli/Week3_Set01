@@ -8,9 +8,9 @@ import java.util.List;
 
     public class Set02 {
 
-        public static void main (String [] args) throws IOException{
+        public static void main (String [] args) throws IOException {
             String fortunes = "";
-            Scanner fortuneScanner= new Scanner(new File("/home/michaelveli/IdeaProjects/Homework3/Set02/src/fortunes.txt")).useDelimiter("%");
+            Scanner fortuneScanner = new Scanner(new File("/home/michaelveli/IdeaProjects/Homework3/Set02/src/fortunes.txt")).useDelimiter("%");
             List<String> fortuneList = new ArrayList<String>();
             int count = 0;
             while (fortuneScanner.hasNext()) {
@@ -18,71 +18,46 @@ import java.util.List;
                 fortuneList.add(fortunes);
                 count++;
             }
+
             fortuneScanner.close();
-          //  System.out.println("There are " + (count - 1) +" fortunes.");
             int max = count;
             int min = 1;
 
             Random rand = new Random();
 
+            int fortuneNumber = rand.nextInt(max - min)+1;
 
-
+            if (args.length > 0) {
             try {
-                Scanner in = new Scanner(System.in);
-                System.out.print("Choose your fortune number (0 for random) : ");
-                int fortuneNumber = in.nextInt();
-                if (fortuneNumber == 0) {
-                    fortuneNumber = rand.nextInt(max - min) + 1;
+                fortuneNumber = Integer.parseInt(args[0]); //gets fortune number from args
+            } catch (Exception e) {
+            }
+                try {
+                    fortuneNumber = Integer.parseInt(args[1]); //gets fortune number from args
+                } catch (Exception e) {
                 }
 
 
-                System.out.print("Debug Y/N ?: ");
-                String debug = in.next();
-                if (debug.equals("Y") || debug.equals("y")) {
+                if (args[0].contains("debug")) {
                     System.out.println("_ _ _ _ _");
-                    System.out.println("There are " + (count - 1) + " fortunes.");
+                    System.out.println("There are " + (count) + " fortunes.");
                     System.out.println("This is fortune # " + fortuneNumber);
 
                 }
 
-                cowSay(fortuneList.get(fortuneNumber - 1));
-            }
-
-            catch (Exception e) {
-                System.out.println("That fortune does not exist");
-                e.printStackTrace();
-            }
-        }
-
-
-
-
-        public static void readFile(){
-            try {
-
-                File fortune = new File("/home/michaelveli/IdeaProjects/Homework3/Set02/src/fortunes.txt");
-                Scanner fortuneScanner = new Scanner(fortune);
-                // fortuneScanner.useDelimiter("%");
-
-                List<String> lines = new ArrayList<String>();
-                while (fortuneScanner.hasNextLine()) {
-                    lines.add(fortuneScanner.nextLine());
-                    System.out.println(lines);
-
-
+                else if (args[1].contains("debug")) {
+                    System.out.println("_ _ _ _ _");
+                    System.out.println("There are " + (count) + " fortunes.");
+                    System.out.println("This is fortune # " + fortuneNumber);
                 }
 
 
-
+        }
+            else {
+                  fortuneNumber = rand.nextInt(max - min)+1;
             }
 
-            catch (FileNotFoundException e) {
-                System.out.println("File not found!");
-                e.printStackTrace();
-
-            }
-
-
+                cowSay(fortuneList.get(fortuneNumber - 1));
         }
 
         public static void cowSay(String message){
@@ -96,7 +71,6 @@ import java.util.List;
             System.out.println     ("        ||      ||");
 
         }
-
 
     }
 
